@@ -8,10 +8,14 @@ export class UsersService {
   constructor(
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
-  ) {}
+  ) { }
 
   // Encontrar el usuario por email o de lo contrario lo va a crear
   async findOrCreate(data: { email: string; name: string }): Promise<User> {
+    if (!data.email || data.email.trim() === '') {
+      throw new Error('Email es requerido');
+    }
+
     let user = await this.userRepository.findOne({ where: { email: data.email } });
     if (!user) {
       user = this.userRepository.create(data);
