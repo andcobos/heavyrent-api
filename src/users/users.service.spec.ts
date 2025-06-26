@@ -10,8 +10,8 @@ describe('UsersService', () => {
 
   const mockUser: User = {
     id: 1,
-    name: 'Juan Pérez',
-    email: 'juan@example.com',
+    name: 'Andrea Cobos',
+    email: 'andcobos@icloud.com',
     role: '',
     machines: [],
     rentals: [],
