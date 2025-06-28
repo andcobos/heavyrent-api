@@ -67,7 +67,7 @@ describe('RentalsService', () => {
   });
 
   it('should return one rental by id', async () => {
-    rentalRepo.findOneBy.mockResolvedValue(rental);
+    rentalRepo.findOne.mockResolvedValue(rental);
     const result = await service.findOne(1);
     expect(result).toEqual(rental);
   });
